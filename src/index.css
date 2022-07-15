@@ -38,7 +38,7 @@
   }
 
   .top-navigation-logo {
-    @apply w-12 h-12 my-auto;
+    @apply w-12 h-12 my-auto ml-2;
   }
 
   .title-hashtag {
