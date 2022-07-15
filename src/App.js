@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// import Sidebar from './components/SideBar';
+// import ContentContainer from './components/ContentContainer';
+// import ChannelBar from './components/ChannelBar';
+import Footer from "./components/Footer";
+import TopNavigation from "./components/TopNavigation";
+import { Outlet } from 'react-router-dom';
+import { useEffect } from "react";
+
 
 function App() {
+  useEffect(() => {
+    document.title = '問卷調查分析平台'
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col">
+      <TopNavigation />
+      <Outlet />
+      <Footer />
     </div>
   );
 }
+
+
 
 export default App;
