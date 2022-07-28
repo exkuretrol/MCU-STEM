@@ -108,8 +108,8 @@ const Post = ({ what }) => {
     <div className='mb-12'>
       <h1 className='font-serif text-3xl text-gray-900 mb-4 border-b border-slate-400 w-fit pb-3'>{what.title}</h1>
       <ul className='list-outside list-disc ml-4'>
-        {what.list.map((item) => (
-          <li className='mb-2'>
+        {what.list.map((item, index) => (
+          <li className='mb-2' key={index}>
             {item.item} <br />
             <ul className='ml-4 list-outside list-decimal'>
               {item.sublist.map((subitem) => (<li>{subitem}</li>))}

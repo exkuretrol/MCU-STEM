@@ -6,7 +6,7 @@ const navigation = [
   { name: 'STEM計畫成果內容', href: '/stemreport' },
   { name: '雲端策略平台', href: '/platform' },
   { name: '推廣教育', href: '/education' },
-  { name: '歷屆競賽', href: '/contest' },
+  { name: '相關競賽', href: '/contest' },
   { name: '關於我們', href: '/about' }
 ]
 
@@ -17,7 +17,7 @@ function classNames(...classes) {
 const TopNavigation = () => {
   return (
     <div className='top-navigation'>
-      <div className='h-16 max-w-8xl mx-auto flex flex-row items-center justify-evently'>
+      <div className='h-16 max-w-7xl mx-auto flex flex-row items-center justify-evently'>
         <SiteLogo />
         <Buttons navigation={navigation} />
         <Divider />
@@ -71,9 +71,8 @@ const Title = () => (
 const Buttons = ({ navigation }) => {
   return (
     <div className='space-x-4 ml-auto'>
-      {navigation.map((item) => (
-        // <Link to={item.href}>{item.name}</Link>
-        <Button item={item} />
+      {navigation.map((item, index) => (
+        <Button item={item} key={index} />
       ))}
     </div>
   );

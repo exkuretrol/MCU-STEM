@@ -234,5 +234,13 @@
   .home-title-text {
     @apply text-7xl text-gray-600 text-opacity-90 leading-tight font-serif text-start;
   }
+
+  .seek-to-btn {
+    @apply text-base text-gray-500 tracking-wider;
+  }
+
+  .seek-to-header {
+    @apply text-xl text-gray-800 text-opacity-90 font-serif;
+  }
   
 }

@@ -15,13 +15,13 @@ const Footer = () => {
 
 const Column = ({ header, organizations }) => {
   return (
-    <div class='footer-column'>
-      <h4 class='footer-header'>{header}</h4>
-      {organizations.map(organization => <Row organization={organization} />)}
+    <div className='footer-column'>
+      <h4 className='footer-header'>{header}</h4>
+      {organizations.map((organization, index) => <Row organization={organization} key={index}/>)}
     </div>
   );
 };
 
-const Row = ({ organization }) => <p class='footer-org-text'>{organization}</p>;
+const Row = ({ organization }) => <p className='footer-org-text'>{organization}</p>;
 
 export default Footer;
