@@ -13,40 +13,7 @@ const About = () => {
           <Post header='Young Women in AI Taiwan 社群簡介' paragraph={YWAI} />
 
           <h1 className='font-serif text-3xl text-gray-900 mb-4 border-b border-slate-400 w-fit pb-3'>聯絡我們</h1>
-          <form class="w-full max-w-lg mb-8">
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full px-3">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                  姓名
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" />
-              </div>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full px-3">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                  電子信箱
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" />
-              </div>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full px-3">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                  訊息
-                </label>
-                <textarea class=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
-              </div>
-            </div>
-            <div class="md:flex md:items-center">
-              <div class="md:w-1/3">
-                <button class="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                  送出
-                </button>
-              </div>
-              <div class="md:w-2/3"></div>
-            </div>
-          </form>
+          <ContactForm />
         </div>
         <div className='pl-8'>
           <h3 className='text-lg font-semibold mb-4'>聯絡資訊</h3>
@@ -65,5 +32,69 @@ const About = () => {
   );
 };
 
+const ContactForm = () => {
+  const handleSubmitForm = async e => {
+    e.preventDefault();
+    const { name, email, message } = e.target.elements;
+    let mail = {
+      to: email.value,
+      subject: "聯絡我們通知信",
+      text: `您好，我們已經收到您的訊息，以下為您填寫的資料，我們將會有專員儘速和您聯絡！\n
+      姓名: ${name.value}!\n
+      Email: ${email.value}\n
+      訊息內容: ${message.value}`,
+      html: `您好，我們已經收到您的訊息，以下為您填寫的資料，我們將會有專員儘速和您聯絡！<br>
+      姓名: ${name.value}!<br>
+      Email: ${email.value}<br>
+      訊息內容: ${message.value}`
+    }
+    let response = await fetch("./.netlify/functions/send-mail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      body: JSON.stringify(mail)
+    })
+    alert(response.json());
+  }
+  return (
+    <>
+      <form class="w-full max-w-lg mb-8" onSubmit={handleSubmitForm}>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+              姓名
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text" value="kuaz"/>
+          </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+              電子信箱
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" value="qaz855175b@gmail.com"/>
+          </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+              訊息
+            </label>
+            <textarea class=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message" value="123 221 333 123 111"></textarea>
+          </div>
+        </div>
+        <div class="md:flex md:items-center">
+          <div class="md:w-1/3">
+            <button class="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+              送出
+            </button>
+          </div>
+          <div class="md:w-2/3"></div>
+        </div>
+      </form>
+    </>
+  )
+}
 
 export default About;
