@@ -1,6 +1,7 @@
 import MainContent from "../../components/MainContent";
 import YouTube from "react-youtube";
-import { useState, useCallback } from "react";
+import { useState } from "react";
+import Post from "../../components/Post"
 
 const opts = {
   width: 800,
@@ -134,8 +135,11 @@ const Contest = () => {
   return (
     <MainContent header='相關競賽' auto='false' content={
       <>
+        <Post header="振興經濟大調查體驗課程 - 高中組" paragraph={['']}/>
         <Player Vid='ZpUsUwO3IrA' timeTable={time_table_2} />
+        <Post header="振興經濟大調查體驗課程 - 大專組" paragraph={['']}/>
         <Player Vid='ypIp9whyMAg' timeTable={time_table_3} />
+        <Post header="振興經濟大調查決賽 - 大專組" paragraph={['']}/>
         <Player Vid='dOyxNmj2on4' timeTable={time_table_1} />
       </>
     } />
