@@ -112,7 +112,7 @@ const Post = ({ what }) => {
           <li className='mb-2' key={index}>
             {item.item} <br />
             <ul className='ml-4 list-outside list-decimal'>
-              {item.sublist.map((subitem) => (<li>{subitem}</li>))}
+              {item.sublist.map((subitem, index) => (<li key={index}>{subitem}</li>))}
             </ul>
           </li>
         ))}

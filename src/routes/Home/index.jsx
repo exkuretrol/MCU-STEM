@@ -32,12 +32,12 @@ const Column = ({ header, items }) => {
   return (
     <div className='flex-col'>
       <h5 className='text-5xl border-b border-b-neutral-700 border-opacity-80 pb-4 mb-4'>{header}</h5>
-      {items.map((item) => <Row item={item} />)}
+      {items.map((item, key) => <Row item={item} key={key} />)}
     </div>
   );
 };
 
-const Row = ({ item }) => <p class='text-xl text-sans'>{item}</p>;
+const Row = ({ item }) => <p className='text-xl text-sans'>{item}</p>;
 
 
 

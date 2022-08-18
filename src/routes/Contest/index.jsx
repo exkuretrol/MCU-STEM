@@ -160,6 +160,7 @@ const Player = ({ Vid = 'ypIp9whyMAg', timeTable = [] }) => {
   return (
     <>
       <YouTube
+        title={Vid}
         videoId={Vid}
         opts={opts}
         onReady={onReady}
@@ -167,11 +168,6 @@ const Player = ({ Vid = 'ypIp9whyMAg', timeTable = [] }) => {
       <div className='flex flex-row mt-8'>
         {
           timeTable.map((item, index) => {
-            // <>
-            //   <div className='flex flex-col items-start'>
-            //   </div>
-            // </>
-
             return (
               <div className='w-full mb-4' key={index}>
                 <h3 className='seek-to-header'>{item.header}</h3>

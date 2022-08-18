@@ -25,7 +25,7 @@ const About = () => {
           </p>
           <h3 className='text-lg font-semibold mb-4'>地址</h3>
           <p className='mb-2'>奇美大樓 <br />100台北市中正區中華路一段</p>
-          <iframe class="rounded-lg" width="50%" height="360px" frameborder="0" src="https://maps.google.com.tw/maps?f=q&amp;z=15&amp;output=embed&amp;q=25.0373206,121.5077808" allowfullscreen=""></iframe>
+          <iframe className="rounded-lg" width="50%" height="360px" frameBorder="0" src="https://maps.google.com.tw/maps?f=q&amp;z=15&amp;output=embed&amp;q=25.0373206,121.5077808" allowFullScreen=""></iframe>
         </div>
       </div>
     } />
@@ -59,38 +59,38 @@ const ContactForm = () => {
   }
   return (
     <>
-      <form class="w-full max-w-lg mb-8" onSubmit={handleSubmitForm}>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+      <form className="w-full max-w-lg mb-8" onSubmit={handleSubmitForm}>
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="name">
               姓名
             </label>
-            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text" value="kuaz"/>
+            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text"/>
           </div>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
               電子信箱
             </label>
-            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" value="qaz855175b@gmail.com"/>
+            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" />
           </div>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
               訊息
             </label>
-            <textarea class=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message" value="123 221 333 123 111"></textarea>
+            <textarea className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
           </div>
         </div>
-        <div class="md:flex md:items-center">
-          <div class="md:w-1/3">
-            <button class="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+        <div className="md:flex md:items-center">
+          <div className="md:w-1/3">
+            <button className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
               送出
             </button>
           </div>
-          <div class="md:w-2/3"></div>
+          <div className="md:w-2/3"></div>
         </div>
       </form>
     </>
